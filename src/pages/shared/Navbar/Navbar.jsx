@@ -5,6 +5,7 @@ import logo from "/logo.png";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+  const isAdmin = false;
 
   const handleLogOut = () => {
     logOut()
@@ -26,13 +27,15 @@ const Navbar = () => {
         <Link>Classes</Link>
       </li>
       <li>
-        <Link>Dashboard</Link>
+        <Link to={isAdmin ? "/dashboard/adminhome" : "/dashboard/userhome"}>
+          Dashboard
+        </Link>
       </li>
     </>
   );
   return (
     <div>
-      <div className="navbar bg-base-100">
+      <div className="navbar fixed z-10 max-w-screen-2xl bg-base-100">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
