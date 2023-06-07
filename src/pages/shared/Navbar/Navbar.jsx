@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../../../../public/logo.png";
+import logo from "/logo.png";
 
 const Navbar = () => {
   const navOptions = (
@@ -57,14 +57,16 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 text-xl font-serif font-light text-gray-500">
+          <ul className="menu menu-horizontal px-1 text-xl font-serif font-light text-gray-600">
             {navOptions}
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn bg-[#848C2F] hover:bg-[#6f752b] text-white">
-            Register now
-          </a>
+          <Link to="/login">
+            <a className="btn bg-[#848C2F] hover:bg-[#6f752b] text-white">
+              login now
+            </a>
+          </Link>
         </div>
       </div>
     </div>
