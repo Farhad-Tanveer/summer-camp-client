@@ -44,7 +44,7 @@ const Register = () => {
       </Helmet>
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row-reverse">
-          <div className="card md:w-1/2 max-w-lg shadow-2xl bg-base-100">
+          <div className="card md:w-full max-w-lg shadow-2xl bg-base-100">
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
               <div className="form-control">
                 <label className="label">
