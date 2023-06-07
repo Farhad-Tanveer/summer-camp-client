@@ -10,6 +10,7 @@ const Register = () => {
     register,
     handleSubmit,
     reset,
+    watch,
     formState: { errors },
   } = useForm();
 
@@ -18,6 +19,12 @@ const Register = () => {
 
   const onSubmit = (data) => {
     // console.log(data);
+
+    if (data.password !== data.confirmPassword) {
+      Swal.fire("Error", "Passwords do not match", "error");
+      return;
+    }
+
     createUser(data.email, data.password).then((result) => {
       const loggedUser = result.user;
       console.log(loggedUser);
@@ -111,6 +118,30 @@ const Register = () => {
                   <span className=" text-red-600">
                     Password must have one uppercase and one special character
                   </span>
+                )}
+              </div>
+
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Confirm Password</span>
+                </label>
+                <input
+                  {...register("confirmPassword", {
+                    required: true,
+                    validate: (value) => value === watch("password"),
+                  })}
+                  type="password"
+                  placeholder="confirm password"
+                  name="confirmPassword"
+                  className="input input-bordered"
+                />
+                {errors.confirmPassword?.type === "required" && (
+                  <span className="text-red-600">
+                    Confirm password is required
+                  </span>
+                )}
+                {errors.confirmPassword?.type === "validate" && (
+                  <span className="text-red-600">Passwords do not match</span>
                 )}
               </div>
 
