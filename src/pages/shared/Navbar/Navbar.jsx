@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../providers/AuthProvider";
 import logo from "/logo.png";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+      .then()
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   const navOptions = (
     <>
       <li>
@@ -62,11 +73,33 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <Link to="/login">
-            <a className="btn bg-[#848C2F] hover:bg-[#6f752b] text-white">
-              login now
-            </a>
-          </Link>
+          {user && (
+            <div className="tooltip tooltip-left" data-tip={user.displayName}>
+              <img
+                src={user.photoURL}
+                className="w-10 h-10 rounded-full border border-black "
+              ></img>
+            </div>
+          )}
+
+          {user ? (
+            <button
+              onClick={handleLogOut}
+              className="btn  bg-[#848c2f] hover:bg-[#606622] text-white ml-5"
+              variant="dark"
+            >
+              Logout
+            </button>
+          ) : (
+            <Link to="/login">
+              <button
+                className="btn text-white bg-[#848c2f] hover:bg-[#606622] "
+                variant="dark"
+              >
+                Login
+              </button>
+            </Link>
+          )}
         </div>
       </div>
     </div>

@@ -2,8 +2,8 @@ import React, { useContext } from "react";
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
-import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const Register = () => {
   const {
@@ -13,7 +13,7 @@ const Register = () => {
     formState: { errors },
   } = useForm();
 
-  const { createUser, updateProfile } = useContext(AuthContext);
+  const { createUser, updateUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const onSubmit = (data) => {
@@ -21,16 +21,13 @@ const Register = () => {
     createUser(data.email, data.password).then((result) => {
       const loggedUser = result.user;
       console.log(loggedUser);
-      updateProfile(data.name, data.photoURL)
+      updateUser(data.name, data.photoURL)
         .then(() => {
-          console.log("user profile info updated");
           reset();
-          Swal.fire("Successfully Signup");
+          Swal.fire("Successfully created User");
           navigate("/");
         })
-        .catch((error) => {
-          console.log(error);
-        });
+        .catch((error) => console.log(error));
     });
   };
   return (
