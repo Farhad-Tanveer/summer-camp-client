@@ -27,9 +27,7 @@ const Navbar = () => {
         <Link to="/classes">Classes</Link>
       </li>
       <li>
-        <Link to={isAdmin ? "/dashboard/adminhome" : "/dashboard/userhome"}>
-          Dashboard
-        </Link>
+        <Link to="/dashboard/myclasses">Dashboard</Link>
       </li>
     </>
   );
