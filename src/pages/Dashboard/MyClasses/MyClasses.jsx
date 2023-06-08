@@ -2,6 +2,7 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import { FaTrashAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 import useCart from "../../../hooks/useCart";
 
 const MyClasses = () => {
@@ -9,6 +10,7 @@ const MyClasses = () => {
   const total = cart.reduce((sum, item) => item.price + sum, 0);
 
   const handleDelete = (item) => {
+    console.log(item);
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -41,7 +43,9 @@ const MyClasses = () => {
       <div>
         <div className=" uppercase font-semibold h-[60px] flex justify-evenly">
           <h3 className=" text-3xl">Total Items: {cart.length} </h3>
-          <h3 className=" text-3xl">Total Price: {total}</h3>
+          <h3 className=" text-3xl">
+            Total Price: <span>&#8364;</span> {total}
+          </h3>
           <Link to="/dashboard/payment">
             <button className=" btn btn-warning btn-sm">Pay</button>
           </Link>
@@ -84,7 +88,10 @@ const MyClasses = () => {
                     {item.availableSeats}
                     <br />
                   </td>
-                  <td>{item.price}</td>
+                  <td>
+                    <span className="mr-1">&#8364;</span>
+                    {item.price}
+                  </td>
                   <td>
                     <button
                       onClick={() => handleDelete(item)}
