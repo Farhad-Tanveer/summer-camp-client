@@ -15,10 +15,10 @@ const useAdmin = () => {
           throw new Error("Error checking admin status");
         }
         const data = await res.json();
-        console.log("is admin response", data);
+        // console.log("is admin response", data);
         return data.admin;
       } catch (error) {
-        console.error("Error checking admin status", error);
+        // console.error("Error checking admin status", error);
         throw new Error("Error checking admin status");
       }
     },
