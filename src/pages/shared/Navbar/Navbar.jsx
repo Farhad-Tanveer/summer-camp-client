@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
-import logo from "/logo.png";
+import logo from "../../../assets/logo.png";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -24,7 +24,7 @@ const Navbar = () => {
         <Link>Instructors</Link>
       </li>
       <li>
-        <Link>Classes</Link>
+        <Link to="/classes">Classes</Link>
       </li>
       <li>
         <Link to={isAdmin ? "/dashboard/adminhome" : "/dashboard/userhome"}>
@@ -35,7 +35,7 @@ const Navbar = () => {
   );
   return (
     <div>
-      <div className="navbar fixed z-10 max-w-screen-2xl bg-base-100">
+      <div className="navbar max-w-screen-2xl bg-base-100">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">

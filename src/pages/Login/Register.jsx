@@ -30,11 +30,27 @@ const Register = () => {
       console.log(loggedUser);
       updateUser(data.name, data.photoURL)
         .then(() => {
-          reset();
-          Swal.fire("Successfully created User");
-          navigate("/");
+          const saveUser = { name: data.name, email: data.email };
+          fetch("http://localhost:3000/users", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(saveUser),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.insertedId) {
+                console.log("user profile info updated");
+                reset();
+                Swal.fire("Successfully Signup");
+                navigate("/");
+              }
+            });
         })
-        .catch((error) => console.log(error));
+        .catch((error) => {
+          console.log(error);
+        });
     });
   };
   return (
