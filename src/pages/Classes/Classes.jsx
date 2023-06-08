@@ -13,8 +13,22 @@ const Classes = () => {
 
   const handleAddToCart = (item) => {
     console.log(item);
-    if (user) {
-      fetch("http://localhost:3000/carts")
+    if (user && user.email) {
+      const addItem = {
+        classItemId: item._id,
+        image: item.classImage,
+        instructorName: item.instructorName,
+        availableSeats: item.availableSeats,
+        price: item.price,
+        email: user?.email,
+      };
+      fetch("http://localhost:3000/carts", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(addItem),
+      })
         .then((res) => res.json())
         .then((data) => {
           if (data.insertedId) {
