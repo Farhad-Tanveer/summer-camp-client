@@ -7,11 +7,13 @@ import {
   FaWallet,
   FaBook,
 } from "react-icons/fa";
+import useAdmin from "../hooks/useAdmin";
+import useInstructor from "../hooks/useInstructor";
 
 const Dashboard = () => {
   //TODO: load data from the server
-  const isAdmin = true;
-  const isInstructor = true;
+  const [isAdmin] = useAdmin();
+  const [isInstructor] = useInstructor();
 
   return (
     <div>
@@ -60,12 +62,12 @@ const Dashboard = () => {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/dashboard/myclasses">
+                  <NavLink to="/dashboard/addclass">
                     <FaBook></FaBook> Add a Class
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink>
+                  <NavLink to="/dashboard/myclass">
                     <FaWallet></FaWallet> My Classes
                   </NavLink>
                 </li>
