@@ -10,6 +10,7 @@ import MyClass from "../pages/Dashboard/MyClass/MyClass";
 import AllUsers from "../pages/Dashboard/MyClasses/AllUsers/AllUsers";
 import MyClasses from "../pages/Dashboard/MyClasses/MyClasses";
 import Payment from "../pages/Dashboard/Payment/Payment";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import Home from "../pages/Home/Home/Home";
 import InstructorPage from "../pages/InstructorsPage/InstructorPage";
 import Login from "../pages/Login/Login";
@@ -20,6 +21,7 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",

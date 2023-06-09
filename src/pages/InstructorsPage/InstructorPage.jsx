@@ -9,7 +9,7 @@ const InstructorPage = () => {
     // Fetch the sorted instructor data from the backend
     fetch("http://localhost:3000/instructors")
       .then((res) => res.json())
-      .then((data) => setInstructors(data.slice(0, 6)));
+      .then((data) => setInstructors(data));
   }, []);
 
   return (
@@ -27,11 +27,7 @@ const InstructorPage = () => {
           <div ca>
             <div className="card card-compact w-96 bg-base-100 shadow-xl">
               <figure>
-                <img
-                  className=" w-full h-80"
-                  src={item.classImage}
-                  alt="Shoes"
-                />
+                <img className=" w-full h-80" src={item.image} alt="Shoes" />
               </figure>
               <div className="card-body items-start">
                 <h2 className="card-title ">{item.name}</h2>

@@ -27,11 +27,7 @@ const Instructors = () => {
           <div ca>
             <div className="card card-compact w-96 bg-base-100 shadow-xl">
               <figure>
-                <img
-                  className=" w-full h-80"
-                  src={item.classImage}
-                  alt="Shoes"
-                />
+                <img className=" w-full h-80" src={item.image} alt="Shoes" />
               </figure>
               <div className="card-body items-center">
                 <h2 className="card-title ">{item.name}</h2>
