@@ -93,7 +93,7 @@ const ManageClasses = () => {
           <tbody>
             {allClasses.map((classItem) => (
               <>
-                <tr>
+                <tr key={classItem._id}>
                   <td>
                     <div className="avatar">
                       <div className="w-24 rounded">

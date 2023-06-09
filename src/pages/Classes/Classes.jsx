@@ -12,7 +12,7 @@ const Classes = () => {
   const location = useLocation();
 
   const handleAddToCart = (item) => {
-    console.log(item);
+    // console.log(item);
     if (user && user.email) {
       const addItem = {
         classItemId: item._id,
@@ -51,6 +51,8 @@ const Classes = () => {
     }
   };
 
+  const approvedClasses = classes.filter((item) => item.status === "approved");
+
   return (
     <div>
       <Helmet>
@@ -67,21 +69,28 @@ const Classes = () => {
         </div>
       </div>
       <div className=" grid lg:grid-cols-3 gap-5 max-w-screen-xl mx-auto my-20">
-        {classes.map((item) => (
-          <div className="card card-compact w-96 bg-base-100 shadow-xl">
+        {approvedClasses.map((item) => (
+          <div
+            className={`card card-compact w-96 bg-base-100 shadow-xl ${
+              item.availableSeats === 0 ? "bg-red-400 text-white" : ""
+            }`}
+            key={item._id}
+          >
             <figure>
               <img className=" w-full h-80" src={item.classImage} alt="Shoes" />
             </figure>
             <div className="card-body">
               <h2 className="card-title">{item.className}</h2>
+              <p>{item.status}</p>
               <p>{item.instructorName}</p>
-              <div className="card-actions justify-between">
+              <div className="card-actions justify-between items-center">
                 <div className="badge badge-outline">
                   Availaible Seats: {item.availableSeats}
                 </div>
                 <div className="badge badge-outline">Price: {item.price}</div>
                 <button
                   onClick={() => handleAddToCart(item)}
+                  disabled={item.availableSeats === 0}
                   className="btn btn-sm bg-[#848c2f] hover:bg-[#606622] text-white"
                 >
                   Select
