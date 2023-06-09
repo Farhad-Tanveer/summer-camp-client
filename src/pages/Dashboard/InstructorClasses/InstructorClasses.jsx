@@ -1,8 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { Helmet } from "react-helmet";
-import { FaTrashAlt } from "react-icons/fa";
-import { Link } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 
 const InstructorClasses = () => {
@@ -63,7 +61,10 @@ const InstructorClasses = () => {
                     </>
                   ) : (
                     <>
-                      <td>Feedback</td>
+                      <td>
+                        <p className=" text-red-500">Feedback</p>
+                        {item.feedback}
+                      </td>
                     </>
                   )}
                   <td>

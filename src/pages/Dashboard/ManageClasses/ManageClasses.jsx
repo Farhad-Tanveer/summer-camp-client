@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
 import { Helmet } from "react-helmet";
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const ManageClasses = () => {
@@ -123,30 +124,11 @@ const ManageClasses = () => {
                       >
                         Deny
                       </button>
-                      {/* Open the modal using ID.showModal() method */}
-                      <button
-                        className="btn btn-xs bg-yellow-300"
-                        onClick={() => window.my_modal_5.showModal()}
-                      >
-                        FeedBack
-                      </button>
-                      <dialog
-                        id="my_modal_5"
-                        className="modal modal-bottom sm:modal-middle"
-                      >
-                        <form method="dialog" className="modal-box">
-                          <textarea
-                            className="border border-gray-300 rounded p-2 mb-4"
-                            placeholder="Enter your feedback"
-                            // value={feedback}
-                            // onChange={handleInputChange}
-                          ></textarea>
-                          <div className="modal-action">
-                            {/* if there is a button in form, it will close the modal */}
-                            <button className="btn">Close</button>
-                          </div>
-                        </form>
-                      </dialog>
+                      <Link to={`/dashboard/feedback/${classItem._id}`}>
+                        <button className="btn bg-yellow-300 btn-xs mx-1">
+                          Feedback
+                        </button>
+                      </Link>
                     </>
                   </td>
                 </tr>

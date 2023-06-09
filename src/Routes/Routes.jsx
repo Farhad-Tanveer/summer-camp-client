@@ -4,6 +4,7 @@ import Main from "../Layout/Main";
 import Classes from "../pages/Classes/Classes";
 import AddClass from "../pages/Dashboard/AddClass/AddClass";
 import InstructorClasses from "../pages/Dashboard/InstructorClasses/InstructorClasses";
+import Feedback from "../pages/Dashboard/ManageClasses/Feedback";
 import ManageClasses from "../pages/Dashboard/ManageClasses/ManageClasses";
 import MyClass from "../pages/Dashboard/MyClass/MyClass";
 import AllUsers from "../pages/Dashboard/MyClasses/AllUsers/AllUsers";
@@ -66,6 +67,10 @@ export const router = createBrowserRouter([
       {
         path: "manageClasses",
         element: <ManageClasses></ManageClasses>,
+      },
+      {
+        path: "feedback/:id",
+        element: <Feedback></Feedback>,
       },
       {
         path: "addclass",

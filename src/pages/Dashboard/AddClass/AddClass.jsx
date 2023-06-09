@@ -79,8 +79,8 @@ const AddClass = () => {
       </Helmet>
       <div className=" w-3/4 px-20  border-2 mx-auto">
         <div className=" text-center my-20">
-          <h1 className=" text-5xl font-extrabold tracking-wider py-3">
-            Add A CLASS
+          <h1 className=" text-5xl font-extrabold tracking-wider py-3 uppercase">
+            ADD A Class
           </h1>
         </div>
         <form onSubmit={handleSubmit(onSubmit)}>
