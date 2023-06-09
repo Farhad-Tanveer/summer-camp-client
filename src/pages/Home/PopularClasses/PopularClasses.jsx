@@ -1,4 +1,3 @@
-import { data } from "autoprefixer";
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
@@ -8,7 +7,7 @@ const PopularClasses = () => {
   useEffect(() => {
     fetch("http://localhost:3000/class")
       .then((res) => res.json())
-      .then((data) => setClasses(data));
+      .then((data) => setClasses(data.slice(0, 6)));
   }, []);
 
   return (
