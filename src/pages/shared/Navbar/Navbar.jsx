@@ -35,9 +35,9 @@ const Navbar = () => {
             <Link
               to={
                 isAdmin
-                  ? "/dashboard/allusers"
+                  ? "/dashboard/manageClasses"
                   : isInstructor
-                  ? "/dashboard/myclass"
+                  ? "/dashboard/instructorClasses"
                   : "/dashboard/myclasses"
               }
             >

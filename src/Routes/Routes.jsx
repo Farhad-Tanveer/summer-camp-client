@@ -3,6 +3,8 @@ import Dashboard from "../Layout/Dashboard";
 import Main from "../Layout/Main";
 import Classes from "../pages/Classes/Classes";
 import AddClass from "../pages/Dashboard/AddClass/AddClass";
+import InstructorClasses from "../pages/Dashboard/InstructorClasses/InstructorClasses";
+import ManageClasses from "../pages/Dashboard/ManageClasses/ManageClasses";
 import MyClass from "../pages/Dashboard/MyClass/MyClass";
 import AllUsers from "../pages/Dashboard/MyClasses/AllUsers/AllUsers";
 import MyClasses from "../pages/Dashboard/MyClasses/MyClasses";
@@ -62,12 +64,20 @@ export const router = createBrowserRouter([
         element: <AllUsers></AllUsers>,
       },
       {
+        path: "manageClasses",
+        element: <ManageClasses></ManageClasses>,
+      },
+      {
         path: "addclass",
         element: <AddClass></AddClass>,
       },
       {
         path: "myclass",
         element: <MyClass></MyClass>,
+      },
+      {
+        path: "instructorClasses",
+        element: <InstructorClasses></InstructorClasses>,
       },
     ],
   },
