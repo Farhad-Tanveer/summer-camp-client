@@ -3,6 +3,8 @@ import { useContext } from "react";
 import { Helmet } from "react-helmet";
 import { useLoaderData, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import useAdmin from "../../hooks/useAdmin";
+import useInstructor from "../../hooks/useInstructor";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const Classes = () => {
@@ -10,6 +12,8 @@ const Classes = () => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
+  const [isAdmin] = useAdmin();
+  const [isInstructor] = useInstructor();
 
   const handleAddToCart = (item) => {
     // console.log(item);
@@ -51,6 +55,7 @@ const Classes = () => {
     }
   };
 
+  // sort the classes
   const approvedClasses = classes.filter((item) => item.status === "approved");
 
   return (
@@ -90,8 +95,16 @@ const Classes = () => {
                 <div className="badge badge-outline">Price: {item.price}</div>
                 <button
                   onClick={() => handleAddToCart(item)}
-                  disabled={item.availableSeats === 0}
-                  className="btn btn-sm bg-[#848c2f] hover:bg-[#606622] text-white"
+                  disabled={
+                    item.availableSeats === 0 ||
+                    (user && (isAdmin || isInstructor))
+                  }
+                  className={`btn btn-sm ${
+                    item.availableSeats === 0 ||
+                    (user && (isAdmin || isInstructor))
+                      ? "bg-gray-400 cursor-not-allowed"
+                      : "bg-[#848c2f] hover:bg-[#606622]"
+                  } text-white`}
                 >
                   Select
                 </button>
