@@ -20,10 +20,10 @@ const Banner = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="text-white text-center">
-              <h2 className="text-2xl text-yellow-400 italic font-serif">
+              <h2 className="lg:text-2xl text-yellow-400 italic font-serif">
                 Sports, fun, and friends
               </h2>
-              <p className=" text-8xl font-extrabold tracking-wide w-[700px] py-7">
+              <p className=" lg:text-8xl font-extrabold tracking-wide w-[700px] py-7">
                 <Fade delay={1e3} cascade damping={1e-1}>
                   <span>Summer Camp starts here!</span>
                 </Fade>
@@ -40,10 +40,10 @@ const Banner = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="text-white text-center">
-              <h2 className="text-2xl text-yellow-400 italic font-serif">
+              <h2 className="lg:text-2xl text-yellow-400 italic font-serif">
                 Calling all athletes
               </h2>
-              <p className=" text-8xl font-extrabold tracking-wide w-[700px] py-7">
+              <p className=" lg:text-8xl font-extrabold tracking-wide w-[700px] py-7">
                 <Fade delay={1e3} cascade damping={1e-1}>
                   <span>Your ultimate summer camp experience!</span>
                 </Fade>
@@ -60,10 +60,10 @@ const Banner = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="text-white text-center">
-              <h2 className="text-2xl text-yellow-400 italic font-serif">
+              <h2 className="lg:text-2xl text-yellow-400 italic font-serif">
                 Summer Camp
               </h2>
-              <p className=" text-8xl font-extrabold tracking-wide w-[700px] py-7">
+              <p className=" lg:text-8xl font-extrabold tracking-wide w-[700px] py-7">
                 <Fade delay={1e3} cascade damping={1e-1}>
                   <span>Where champions are made!</span>
                 </Fade>
@@ -80,10 +80,10 @@ const Banner = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="text-white text-center">
-              <h2 className="text-2xl text-yellow-400 italic font-serif">
+              <h2 className="lg:text-2xl text-yellow-400 italic font-serif">
                 thrill of summer sports
               </h2>
-              <p className=" text-8xl font-extrabold tracking-wide w-[700px] py-7">
+              <p className=" lg:text-8xl font-extrabold tracking-wide w-[700px] py-7">
                 <Fade delay={1e3} cascade damping={1e-1}>
                   <span>Discover the joy of sports!</span>
                 </Fade>

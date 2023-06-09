@@ -8,14 +8,14 @@ const Benefits = () => {
   return (
     <div className=" my-20">
       <div className="card lg:card-side bg-base-100 shadow-xl">
-        <figure className=" w-1/2">
+        <figure className=" lg:w-1/2">
           <img
             className=" object-cover w-full h-[500px] rounded-3xl"
             src={img}
             alt="Album"
           />
         </figure>
-        <div className="card-body w-1/2">
+        <div className="card-body lg:w-1/2">
           <h2 className="card-title text-red-500 text-2xl italic font-serif">
             our benefits
           </h2>
@@ -26,7 +26,7 @@ const Benefits = () => {
             environment.
           </p>
           <div className="card-actions justify-start">
-            <div className=" flex justify-evenly gap-14">
+            <div className=" flex flex-col lg:flex-row justify-evenly gap-14">
               <div className=" bg-[#FFF8EF] rounded-lg p-4">
                 <img className=" w-28 h-28" src={icon1} alt="" />
                 <p className=" pt-5 text-center font-bold text-[#422C18]">

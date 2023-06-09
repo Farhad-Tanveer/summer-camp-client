@@ -8,6 +8,7 @@ import AllUsers from "../pages/Dashboard/MyClasses/AllUsers/AllUsers";
 import MyClasses from "../pages/Dashboard/MyClasses/MyClasses";
 import Payment from "../pages/Dashboard/Payment/Payment";
 import Home from "../pages/Home/Home/Home";
+import InstructorPage from "../pages/InstructorsPage/InstructorPage";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Login/Register";
 import PrivateRoute from "./PrivateRoute";
@@ -33,6 +34,10 @@ export const router = createBrowserRouter([
         path: "/classes",
         element: <Classes></Classes>,
         loader: () => fetch("http://localhost:3000/class"),
+      },
+      {
+        path: "/instructors",
+        element: <InstructorPage></InstructorPage>,
       },
     ],
   },
