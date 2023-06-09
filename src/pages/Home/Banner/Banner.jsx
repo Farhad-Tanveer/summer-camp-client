@@ -5,6 +5,7 @@ import img1 from "../../../assets/images/banner/banner1.jpeg";
 import img2 from "../../../assets/images/banner/banner2.jpeg";
 import img3 from "../../../assets/images/banner/banner3.jpeg";
 import img4 from "../../../assets/images/banner/banner4.jpeg";
+import { Fade } from "react-awesome-reveal";
 
 const Banner = () => {
   return (
@@ -23,7 +24,9 @@ const Banner = () => {
                 Sports, fun, and friends
               </h2>
               <p className=" text-8xl font-extrabold tracking-wide w-[700px] py-7">
-                Summer Camp starts here!
+                <Fade delay={1e3} cascade damping={1e-1}>
+                  <span>Summer Camp starts here!</span>
+                </Fade>
               </p>
             </div>
           </div>
@@ -41,7 +44,9 @@ const Banner = () => {
                 Calling all athletes
               </h2>
               <p className=" text-8xl font-extrabold tracking-wide w-[700px] py-7">
-                Your ultimate summer camp experience!
+                <Fade delay={1e3} cascade damping={1e-1}>
+                  <span>Your ultimate summer camp experience!</span>
+                </Fade>
               </p>
             </div>
           </div>
@@ -59,7 +64,9 @@ const Banner = () => {
                 Summer Camp
               </h2>
               <p className=" text-8xl font-extrabold tracking-wide w-[700px] py-7">
-                Where champions are made!
+                <Fade delay={1e3} cascade damping={1e-1}>
+                  <span>Where champions are made!</span>
+                </Fade>
               </p>
             </div>
           </div>
@@ -77,7 +84,9 @@ const Banner = () => {
                 thrill of summer sports
               </h2>
               <p className=" text-8xl font-extrabold tracking-wide w-[700px] py-7">
-                Discover the joy of sports!
+                <Fade delay={1e3} cascade damping={1e-1}>
+                  <span>Discover the joy of sports!</span>
+                </Fade>
               </p>
             </div>
           </div>
