@@ -3,6 +3,7 @@ import Dashboard from "../Layout/Dashboard";
 import Main from "../Layout/Main";
 import Classes from "../pages/Classes/Classes";
 import AddClass from "../pages/Dashboard/AddClass/AddClass";
+import EnrolledClasses from "../pages/Dashboard/enrolledClasses/enrolledClasses";
 import InstructorClasses from "../pages/Dashboard/InstructorClasses/InstructorClasses";
 import Feedback from "../pages/Dashboard/ManageClasses/Feedback";
 import ManageClasses from "../pages/Dashboard/ManageClasses/ManageClasses";
@@ -15,6 +16,8 @@ import Home from "../pages/Home/Home/Home";
 import InstructorPage from "../pages/InstructorsPage/InstructorPage";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Login/Register";
+import AdminRoute from "./AdminRoute";
+import InstructorRoute from "./InstructorRoute";
 import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
@@ -59,24 +62,45 @@ export const router = createBrowserRouter([
         element: <MyClasses></MyClasses>,
       },
       {
+        path: "myEnrolledClasses",
+        element: <EnrolledClasses></EnrolledClasses>,
+        loader: () => fetch("http://localhost:3000/payments"),
+      },
+      {
         path: "payment/:id",
         element: <Payment></Payment>,
       },
       {
         path: "allusers",
-        element: <AllUsers></AllUsers>,
+        element: (
+          <AdminRoute>
+            <AllUsers></AllUsers>
+          </AdminRoute>
+        ),
       },
       {
         path: "manageClasses",
-        element: <ManageClasses></ManageClasses>,
+        element: (
+          <AdminRoute>
+            <ManageClasses></ManageClasses>
+          </AdminRoute>
+        ),
       },
       {
         path: "feedback/:id",
-        element: <Feedback></Feedback>,
+        element: (
+          <AdminRoute>
+            <Feedback></Feedback>
+          </AdminRoute>
+        ),
       },
       {
         path: "addclass",
-        element: <AddClass></AddClass>,
+        element: (
+          <InstructorRoute>
+            <AddClass></AddClass>
+          </InstructorRoute>
+        ),
       },
       {
         path: "myclass",
@@ -84,7 +108,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "instructorClasses",
-        element: <InstructorClasses></InstructorClasses>,
+        element: (
+          <InstructorRoute>
+            <InstructorClasses></InstructorClasses>
+          </InstructorRoute>
+        ),
       },
     ],
   },

@@ -99,7 +99,7 @@ const MyClasses = () => {
                     </button>
                   </td>
                   <td>
-                    <Link to={`/dashboard/payment/${item._id}`}>
+                    <Link to={`/dashboard/payment/${item.classItemId}`}>
                       <button className=" btn btn-warning btn-sm">Pay</button>
                     </Link>
                   </td>

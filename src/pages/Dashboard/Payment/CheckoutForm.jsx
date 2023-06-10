@@ -5,8 +5,10 @@ import { useState } from "react";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useEffect } from "react";
 import useAuth from "../../../hooks/useAuth";
+import Swal from "sweetalert2";
+import moment from "moment";
 
-const CheckoutForm = ({ price, cart }) => {
+const CheckoutForm = ({ price, singleItem }) => {
   const stripe = useStripe();
   const elements = useElements();
   const { user } = useAuth();
@@ -74,22 +76,48 @@ const CheckoutForm = ({ price, cart }) => {
         email: user?.email,
         transactionId: paymentIntent.id,
         price,
-        date: new Date(),
-        quantity: cart.length,
-        items: cart.map((item) => item._id),
-        itemName: cart.map((item) => item.className),
+        date: moment().format("MMMM Do YYYY, h:mm:ss a"),
+        quantity: singleItem.length,
+        classItem: singleItem.classItemId,
+        cartItem: singleItem._id,
+        itemName: singleItem.className,
+        classImage: singleItem.classImage,
       };
-      axiosSecure.post("/payments", payment).then((res) => {
-        // console.log(res.data);
-        if (res.data.insertedData) {
-          // display confirm
-        }
-      });
+      fetch("http://localhost:3000/payments", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payment),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.insertResult && data.deleteResult) {
+            // Show success swal notification
+            Swal.fire({
+              icon: "success",
+              title: "Payment Successful!",
+              text: "Your payment has been processed successfully.",
+            }).then(() => {
+              // Clear the checkout form
+              elements.getElement(CardElement).clear();
+            });
+          } else {
+            // Show error swal notification
+            Swal.fire({
+              icon: "error",
+              title: "Payment Failed",
+              text: "There was an error processing your payment.",
+            });
+          }
+        });
     }
   };
 
   return (
     <div>
+      <p>Your Amount: &euro; {price}</p>
       <form onSubmit={handleSubmit}>
         <CardElement
           options={{
@@ -107,6 +135,7 @@ const CheckoutForm = ({ price, cart }) => {
             },
           }}
         />
+
         <button
           className=" text-black"
           type="submit"

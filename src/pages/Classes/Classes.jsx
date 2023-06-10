@@ -25,6 +25,8 @@ const Classes = () => {
         availableSeats: item.availableSeats,
         price: item.price,
         email: user?.email,
+        className: item.className,
+        classImage: item.classImage,
       };
       fetch("http://localhost:3000/carts", {
         method: "POST",

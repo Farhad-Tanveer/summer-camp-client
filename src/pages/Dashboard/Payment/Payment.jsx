@@ -1,14 +1,34 @@
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
-import React from "react";
+import React, { useState } from "react";
 import CheckoutForm from "./CheckoutForm";
 import useCart from "../../../hooks/useCart";
-
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
 const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway_PK);
 
 const Payment = () => {
+  const { id } = useParams();
+  const [itemData, setItemData] = useState(null);
+
+  useEffect(() => {
+    fetch(`http://localhost:3000/carts/${id}`)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setItemData(data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, [id]);
+
   const [cart] = useCart();
-  const total = cart.reduce((sum, item) => sum + item.price, 0);
+
+  if (!itemData) {
+    return null;
+  }
+  const total = itemData.price;
   const price = parseFloat(total.toFixed(2));
 
   return (
@@ -18,7 +38,7 @@ const Payment = () => {
           Payment
         </h1>
         <Elements stripe={stripePromise}>
-          <CheckoutForm price={price} cart={cart}></CheckoutForm>
+          <CheckoutForm price={price} singleItem={itemData}></CheckoutForm>
         </Elements>
       </div>
     </div>
