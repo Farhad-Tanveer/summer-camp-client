@@ -15,7 +15,7 @@ const Benefits = () => {
             alt="Album"
           />
         </figure>
-        <div className="card-body lg:w-1/2">
+        <div className="card-body  lg:w-1/2">
           <h2 className="card-title text-red-500 text-2xl italic font-serif">
             our benefits
           </h2>

@@ -18,9 +18,7 @@ const Instructors = () => {
         <p className=" text-red-600 text-2xl italic font-serif">
           Welcome to our
         </p>
-        <h1 className=" text-5xl font-extrabold tracking-wider py-3">
-          POPULAR INSTRUCTORS
-        </h1>
+        <h1 className=" text-5xl font-extrabold py-3">POPULAR INSTRUCTORS</h1>
       </div>
       <div className=" grid grid-cols-1 lg:grid-cols-3 max-w-screen-xl mx-auto gap-10 my-10">
         {instructors.map((item) => (

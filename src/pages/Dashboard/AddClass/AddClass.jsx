@@ -1,7 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import { useForm } from "react-hook-form";
-import { json } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAuth from "../../../hooks/useAuth";
 
@@ -43,8 +42,9 @@ const AddClass = () => {
             price: parseFloat(price),
             classImage: imgURL,
             status: "pending",
+            enrolled: 0,
           };
-          console.log(newClass);
+          // console.log(newClass);
 
           fetch("http://localhost:3000/class", {
             method: "POST",
@@ -70,7 +70,7 @@ const AddClass = () => {
         }
       });
   };
-  console.log(img_hosting_url);
+  // console.log(img_hosting_url);
 
   return (
     <>
