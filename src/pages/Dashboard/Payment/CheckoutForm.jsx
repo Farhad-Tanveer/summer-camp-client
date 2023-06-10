@@ -83,7 +83,7 @@ const CheckoutForm = ({ price, singleItem }) => {
         itemName: singleItem.className,
         classImage: singleItem.classImage,
       };
-      fetch("http://localhost:3000/payments", {
+      fetch("https://summer-camp-server-seven.vercel.app/payments", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

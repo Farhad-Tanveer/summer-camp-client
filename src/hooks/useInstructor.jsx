@@ -9,7 +9,7 @@ const useInstructor = () => {
     queryFn: async () => {
       try {
         const res = await fetch(
-          `http://localhost:3000/users/instructor/${user?.email}`
+          `https://summer-camp-server-seven.vercel.app/users/instructor/${user?.email}`
         );
         if (!res.ok) {
           throw new Error("Error checking instructor status");

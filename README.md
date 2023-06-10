@@ -20,7 +20,7 @@ This is a sports academy website project designed for a summer camp school. The 
 ## Usage
 
 1. Start the development server: `npm start`
-2. Access the website in your browser at: `http://localhost:3000`
+2. Access the website in your browser at: `https://summer-camp-server-seven.vercel.app`
 
 ## Technologies Used
 
@@ -40,4 +40,4 @@ This is a sports academy website project designed for a summer camp school. The 
 
 ## Live site link
 
--
+- https://summer-camp-b9765.web.app/

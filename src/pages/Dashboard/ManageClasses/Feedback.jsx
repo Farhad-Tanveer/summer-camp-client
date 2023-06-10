@@ -12,7 +12,7 @@ const Feedback = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    fetch(`http://localhost:3000/class/${id}`, {
+    fetch(`https://summer-camp-server-seven.vercel.app/class/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

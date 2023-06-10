@@ -7,7 +7,7 @@ const InstructorPage = () => {
 
   useEffect(() => {
     // Fetch the sorted instructor data from the backend
-    fetch("http://localhost:3000/instructors")
+    fetch("https://summer-camp-server-seven.vercel.app/instructors")
       .then((res) => res.json())
       .then((data) => setInstructors(data));
   }, []);

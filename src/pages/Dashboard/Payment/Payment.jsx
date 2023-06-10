@@ -12,7 +12,7 @@ const Payment = () => {
   const [itemData, setItemData] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/carts/${id}`)
+    fetch(`https://summer-camp-server-seven.vercel.app/carts/${id}`)
       .then((response) => response.json())
       .then((data) => {
         console.log(data);

@@ -9,7 +9,7 @@ const useAdmin = () => {
     queryFn: async () => {
       try {
         const res = await fetch(
-          `http://localhost:3000/users/admin/${user?.email}`
+          `https://summer-camp-server-seven.vercel.app/users/admin/${user?.email}`
         );
         if (!res.ok) {
           throw new Error("Error checking admin status");

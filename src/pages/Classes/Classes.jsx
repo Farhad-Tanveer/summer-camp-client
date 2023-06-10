@@ -32,7 +32,7 @@ const Classes = () => {
           className: item.className,
           classImage: item.classImage,
         };
-        fetch("http://localhost:3000/carts", {
+        fetch("https://summer-camp-server-seven.vercel.app/carts", {
           method: "POST",
           headers: {
             "content-type": "application/json",

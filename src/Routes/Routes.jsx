@@ -42,7 +42,8 @@ export const router = createBrowserRouter([
       {
         path: "/classes",
         element: <Classes></Classes>,
-        loader: () => fetch("http://localhost:3000/class"),
+        loader: () =>
+          fetch("https://summer-camp-server-seven.vercel.app/class"),
       },
       {
         path: "/instructors",
@@ -65,12 +66,14 @@ export const router = createBrowserRouter([
       {
         path: "myEnrolledClasses",
         element: <EnrolledClasses></EnrolledClasses>,
-        loader: () => fetch("http://localhost:3000/payments"),
+        loader: () =>
+          fetch("https://summer-camp-server-seven.vercel.app/payments"),
       },
       {
         path: "paymentHistory",
         element: <PaymentHistory></PaymentHistory>,
-        loader: () => fetch("http://localhost:3000/payments"),
+        loader: () =>
+          fetch("https://summer-camp-server-seven.vercel.app/payments"),
       },
       {
         path: "payment/:id",

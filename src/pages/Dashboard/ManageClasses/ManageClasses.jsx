@@ -8,7 +8,9 @@ const ManageClasses = () => {
   const { data: allClasses = [], refetch } = useQuery(
     ["allClasses"],
     async () => {
-      const res = await fetch("http://localhost:3000/class");
+      const res = await fetch(
+        "https://summer-camp-server-seven.vercel.app/class"
+      );
       return res.json();
     }
   );
@@ -24,9 +26,12 @@ const ManageClasses = () => {
       confirmButtonText: "Yes, Approve it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/class/approve/${item._id}`, {
-          method: "PATCH",
-        })
+        fetch(
+          `https://summer-camp-server-seven.vercel.app/class/approve/${item._id}`,
+          {
+            method: "PATCH",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {
@@ -52,9 +57,12 @@ const ManageClasses = () => {
       confirmButtonText: "Yes, Deny it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/class/deny/${item._id}`, {
-          method: "PATCH",
-        })
+        fetch(
+          `https://summer-camp-server-seven.vercel.app/class/deny/${item._id}`,
+          {
+            method: "PATCH",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {

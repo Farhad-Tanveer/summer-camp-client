@@ -35,7 +35,7 @@ const Register = () => {
             email: data.email,
             image: data.photoURL,
           };
-          fetch("http://localhost:3000/users", {
+          fetch("https://summer-camp-server-seven.vercel.app/users", {
             method: "POST",
             headers: {
               "content-type": "application/json",

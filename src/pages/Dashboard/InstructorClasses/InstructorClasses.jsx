@@ -9,7 +9,7 @@ const InstructorClasses = () => {
     ["allClasses"],
     async () => {
       const res = await fetch(
-        `http://localhost:3000/classes?email=${user?.email}`
+        `https://summer-camp-server-seven.vercel.app/classes?email=${user?.email}`
       );
       return res.json();
     }

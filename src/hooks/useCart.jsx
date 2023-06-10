@@ -9,7 +9,7 @@ const useCart = () => {
     queryKey: ["cart", user.email],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:3000/carts?email=${user?.email}`
+        `https://summer-camp-server-seven.vercel.app/carts?email=${user?.email}`
       );
       return res.json();
     },
