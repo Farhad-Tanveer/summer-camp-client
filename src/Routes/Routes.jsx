@@ -11,6 +11,7 @@ import MyClass from "../pages/Dashboard/MyClass/MyClass";
 import AllUsers from "../pages/Dashboard/MyClasses/AllUsers/AllUsers";
 import MyClasses from "../pages/Dashboard/MyClasses/MyClasses";
 import Payment from "../pages/Dashboard/Payment/Payment";
+import PaymentHistory from "../pages/Dashboard/Payment/PaymentHistory";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import Home from "../pages/Home/Home/Home";
 import InstructorPage from "../pages/InstructorsPage/InstructorPage";
@@ -64,6 +65,11 @@ export const router = createBrowserRouter([
       {
         path: "myEnrolledClasses",
         element: <EnrolledClasses></EnrolledClasses>,
+        loader: () => fetch("http://localhost:3000/payments"),
+      },
+      {
+        path: "paymentHistory",
+        element: <PaymentHistory></PaymentHistory>,
         loader: () => fetch("http://localhost:3000/payments"),
       },
       {

@@ -24,7 +24,7 @@ const Instructors = () => {
       </div>
       <div className=" grid grid-cols-1 lg:grid-cols-3 max-w-screen-xl mx-auto gap-10 my-10">
         {instructors.map((item) => (
-          <div ca>
+          <div>
             <div className="card card-compact w-96 bg-base-100 shadow-xl">
               <figure>
                 <img className=" w-full h-80" src={item.image} alt="Shoes" />

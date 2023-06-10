@@ -90,6 +90,11 @@ const Dashboard = () => {
                     <FaWallet></FaWallet> My Enrolled CLasses
                   </NavLink>
                 </li>
+                <li>
+                  <NavLink to="/dashboard/paymentHistory">
+                    <FaWallet></FaWallet> Payment History
+                  </NavLink>
+                </li>
               </>
             )}
           </ul>

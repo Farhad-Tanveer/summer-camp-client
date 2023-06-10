@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import { useContext } from "react";
 import { Helmet } from "react-helmet";
 import { useLoaderData, useLocation, useNavigate } from "react-router-dom";
@@ -15,45 +16,53 @@ const Classes = () => {
   const [isAdmin] = useAdmin();
   const [isInstructor] = useInstructor();
 
+  const [selectedItems, setSelectedItems] = useState([]);
+
   const handleAddToCart = (item) => {
     // console.log(item);
-    if (user && user.email) {
-      const addItem = {
-        classItemId: item._id,
-        image: item.classImage,
-        instructorName: item.instructorName,
-        availableSeats: item.availableSeats,
-        price: item.price,
-        email: user?.email,
-        className: item.className,
-        classImage: item.classImage,
-      };
-      fetch("http://localhost:3000/carts", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(addItem),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.insertedId) {
-            Swal.fire("class added on the cart");
+    if (!selectedItems.includes(item._id)) {
+      if (user && user.email) {
+        const addItem = {
+          classItemId: item._id,
+          image: item.classImage,
+          instructorName: item.instructorName,
+          availableSeats: item.availableSeats,
+          price: item.price,
+          email: user?.email,
+          className: item.className,
+          classImage: item.classImage,
+        };
+        fetch("http://localhost:3000/carts", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(addItem),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.insertedId) {
+              setSelectedItems((prevSelectedItems) => [
+                ...prevSelectedItems,
+                item._id,
+              ]);
+              Swal.fire("class added on the cart");
+            }
+          });
+      } else {
+        Swal.fire({
+          title: "Please login to add the class",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Login Now!",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            navigate("/login", { state: { from: location } });
           }
         });
-    } else {
-      Swal.fire({
-        title: "Please login to add the class",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Login Now!",
-      }).then((result) => {
-        if (result.isConfirmed) {
-          navigate("/login", { state: { from: location } });
-        }
-      });
+      }
     }
   };
 
@@ -98,10 +107,12 @@ const Classes = () => {
                 <button
                   onClick={() => handleAddToCart(item)}
                   disabled={
+                    selectedItems.includes(item._id) ||
                     item.availableSeats === 0 ||
                     (user && (isAdmin || isInstructor))
                   }
                   className={`btn btn-sm ${
+                    selectedItems.includes(item._id) ||
                     item.availableSeats === 0 ||
                     (user && (isAdmin || isInstructor))
                       ? "bg-gray-400 cursor-not-allowed"
