@@ -47,9 +47,6 @@ const MyClasses = () => {
           <h3 className=" text-3xl">
             Total Price: <span>&#8364;</span> {total}
           </h3>
-          <Link to="/dashboard/payment">
-            <button className=" btn btn-warning btn-sm">Pay</button>
-          </Link>
         </div>
         <div className="overflow-x-auto w-full">
           <table className="table w-full">
@@ -100,6 +97,11 @@ const MyClasses = () => {
                     >
                       <FaTrashAlt></FaTrashAlt>
                     </button>
+                  </td>
+                  <td>
+                    <Link to={`/dashboard/payment/${item._id}`}>
+                      <button className=" btn btn-warning btn-sm">Pay</button>
+                    </Link>
                   </td>
                 </tr>
               ))}
