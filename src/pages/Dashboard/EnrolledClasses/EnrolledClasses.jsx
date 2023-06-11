@@ -1,9 +1,16 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import { useLoaderData } from "react-router-dom";
+import useAuth from "../../../hooks/useAuth";
 
 const EnrolledClasses = () => {
   const enrolledClasses = useLoaderData();
+  const { user } = useAuth();
+
+  // Filter the enrolledClasses based on the matching email field
+  const filteredClasses = enrolledClasses.filter(
+    (item) => item.email === user.email
+  );
 
   return (
     <div className=" w-full">
@@ -29,7 +36,7 @@ const EnrolledClasses = () => {
               </tr>
             </thead>
             <tbody>
-              {enrolledClasses.map((item, index) => (
+              {filteredClasses.map((item, index) => (
                 <tr key={item._id}>
                   <td>{index + 1}</td>
                   <td>

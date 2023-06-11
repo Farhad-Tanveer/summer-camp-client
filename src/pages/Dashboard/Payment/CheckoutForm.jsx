@@ -102,6 +102,16 @@ const CheckoutForm = ({ price, singleItem }) => {
             }).then(() => {
               // Clear the checkout form
               elements.getElement(CardElement).clear();
+
+              const classId = singleItem.classItemId;
+              fetch(
+                `https://summer-camp-server-seven.vercel.app/updateClass/${classId}`,
+                {
+                  method: "PATCH",
+                }
+              )
+                .then((res) => res.json())
+                .then((data) => console.log(data));
             });
           } else {
             // Show error swal notification

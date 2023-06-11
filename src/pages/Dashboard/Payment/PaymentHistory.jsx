@@ -1,9 +1,14 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import { useLoaderData } from "react-router-dom";
+import useAuth from "../../../hooks/useAuth";
 
 const PaymentHistory = () => {
   const paymentHistory = useLoaderData();
+  const { user } = useAuth();
+  const filteredHistory = paymentHistory.filter(
+    (item) => item.email === user.email
+  );
 
   return (
     <div className=" w-full">
@@ -28,7 +33,7 @@ const PaymentHistory = () => {
               </tr>
             </thead>
             <tbody>
-              {paymentHistory.map((item, index) => (
+              {filteredHistory.map((item, index) => (
                 <tr key={item._id}>
                   <td>{index + 1}</td>
                   <td>

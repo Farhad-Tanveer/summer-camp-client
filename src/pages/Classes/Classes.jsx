@@ -97,7 +97,6 @@ const Classes = () => {
             </figure>
             <div className="card-body">
               <h2 className="card-title">{item.className}</h2>
-              <p>{item.status}</p>
               <p>{item.instructorName}</p>
               <div className="card-actions justify-between items-center">
                 <div className="badge badge-outline">

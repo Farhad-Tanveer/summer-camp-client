@@ -23,7 +23,7 @@ const PopularClasses = () => {
       <div className=" grid grid-cols-1 lg:grid-cols-3 max-w-screen-xl mx-auto gap-10 my-10">
         {classes.map((item) => (
           <div key={item._id}>
-            <div className="card card-compact w-96 bg-base-100 shadow-xl">
+            <div className="card card-compact w-96 bg-base-100 shadow-xl ">
               <figure>
                 <img
                   className=" w-full h-80"

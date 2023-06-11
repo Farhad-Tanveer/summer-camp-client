@@ -10,7 +10,7 @@ const Benefits = () => {
       <div className="card lg:card-side bg-base-100 shadow-xl">
         <figure className=" lg:w-1/2">
           <img
-            className=" object-cover w-full h-[500px] rounded-3xl"
+            className=" object-cover w-full h-[500px] rounded-3xl "
             src={img}
             alt="Album"
           />
@@ -27,19 +27,23 @@ const Benefits = () => {
           </p>
           <div className="card-actions justify-start">
             <div className=" flex flex-col lg:flex-row justify-evenly gap-14">
-              <div className=" bg-[#FFF8EF] rounded-lg p-4">
-                <img className=" w-28 h-28" src={icon1} alt="" />
+              <div className=" bg-[#FFF8EF] rounded-lg p-4 transition-transform hover:scale-110">
+                <img
+                  className=" w-28 h-28 transform transition-transform hover:scale-100"
+                  src={icon1}
+                  alt=""
+                />
                 <p className=" pt-5 text-center font-bold text-[#422C18]">
                   Fun &amp; Fitness
                 </p>
               </div>
-              <div className=" bg-[#FFF8EF] rounded-lg p-4">
+              <div className=" bg-[#FFF8EF] rounded-lg p-4 transition-transform hover:scale-110">
                 <img className=" w-28 h-28" src={icon2} alt="" />
                 <p className=" pt-5 text-center font-bold text-[#422C18]">
                   Expert Coaching
                 </p>
               </div>
-              <div className=" bg-[#FFF8EF] rounded-lg p-4">
+              <div className=" bg-[#FFF8EF] rounded-lg p-4 transition-transform hover:scale-110">
                 <img className=" w-28 h-28" src={icon3} alt="" />
                 <p className=" pt-5 text-center font-bold text-[#422C18]">
                   Memorable Moments
