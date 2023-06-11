@@ -34,6 +34,7 @@ const Register = () => {
             name: data.name,
             email: data.email,
             image: data.photoURL,
+            role: "student",
           };
           fetch("https://summer-camp-server-seven.vercel.app/users", {
             method: "POST",
