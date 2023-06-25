@@ -6,6 +6,13 @@ const Footer = () => {
     <div>
       <footer className="footer flex justify-evenly p-10 bg-[#fcc044] text-base-content">
         <div>
+          <div className="justify-center items-center">
+            <img className=" w-16" src={logo} alt="" />
+            <p>Sporty Summer</p>
+            <p></p>
+          </div>
+        </div>
+        <div>
           <span className="footer-title">Services</span>
           <a className="link link-hover">Branding</a>
           <a className="link link-hover">Design</a>
@@ -28,12 +35,7 @@ const Footer = () => {
       </footer>
       <footer className="footer px-10 py-4 border-t bg-[#fcc044] text-black border-base-300">
         <div className="items-center grid-flow-col">
-          <img className=" w-16" src={logo} alt="" />
-          <p>
-            Sporty Summer <br />
-            Copyright © 2023 - All right reserved
-          </p>
-          <p></p>
+          Copyright © 2023 - All right reserved
         </div>
         <div className="md:place-self-center md:justify-self-end">
           <div className="grid grid-flow-col gap-4">

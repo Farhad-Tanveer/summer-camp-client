@@ -79,14 +79,14 @@ const Navbar = () => {
           <Link to="/">
             <a className="btn btn-ghost normal-case text-xl">
               <img className=" w-16" src={logo} alt="" />
-              <span className=" text-3xl hidden lg:block font-bold text-[#422C18]">
+              <span className=" text-xl hidden lg:block font-bold text-[#422C18]">
                 Sporty Summer
               </span>
             </a>
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 text-xl font-serif font-light text-gray-600">
+          <ul className="menu menu-horizontal px-1 text-lg font-serif font-light text-gray-600">
             {navOptions}
           </ul>
         </div>

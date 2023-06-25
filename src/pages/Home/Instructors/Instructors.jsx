@@ -24,8 +24,12 @@ const Instructors = () => {
         {instructors.map((item) => (
           <div>
             <div className="card card-compact w-96 bg-base-100 shadow-xl">
-              <figure>
-                <img className=" w-full h-80" src={item.image} alt="Shoes" />
+              <figure className=" h-80">
+                <img
+                  className=" w-full h-full object-cover"
+                  src={item.image}
+                  alt="Shoes"
+                />
               </figure>
               <div className="card-body items-center">
                 <h2 className="card-title ">{item.name}</h2>
